@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     @title_header = nil
     @release_date_header = nil
+    
   end
   end
 
