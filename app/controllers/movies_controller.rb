@@ -10,8 +10,20 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
+  
   def index
+    case params[:sort_param]
+    when 'title'
+      @movies = Movie.order('title ASC')
+      @title_header = 'hilite'
+    when 'release_date'
+      @movies = Movie.order('release_date ASC')
+      @release_date_header = 'hilite'
+    else
     @movies = Movie.all
+    @title_header = nil
+    @release_date_header = nil
+  end
   end
 
   def new
